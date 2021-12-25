@@ -911,3 +911,8 @@ SET Konckdown = 0.065
 WHERE SPECIALCODE IN (Select SPECIALCODE FROM GREATCARTABLE WHERE WarehouseID = 15)
 
 GO
+
+UPDATE Carprice
+SET TotalPrice = (BasePrice + ModelPrIce + AdditionalStuff)*(1-Konckdown) FROM Carprice
+
+GO
