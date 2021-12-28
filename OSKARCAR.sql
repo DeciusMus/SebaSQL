@@ -1,4 +1,4 @@
-
+/*PRESS F5*/
 
 CREATE DATABASE OSKARCARS
 GO 
@@ -94,7 +94,7 @@ GO
  VALUES ('Zbigniew', 'Tornado', 'Herczyk', '576754219', '97060190000')
 
  INSERT INTO Oskar.Employees ( Empname, EmpMidName, EmpLastName, EmpPhone, EmpPESEL)
- VALUES ('Zenon', '£ubudu', 'Herczyk', '609091199', '76032300078')
+ VALUES ('Zenon', 'Â£ubudu', 'Herczyk', '609091199', '76032300078')
 
  INSERT INTO Oskar.Employees ( Empname, EmpMidName, EmpLastName, EmpPhone, EmpPESEL)
  VALUES ('Julka', 'Dej3Stuwy', 'Ztwittera', '607899004', '03020100001')
@@ -106,10 +106,10 @@ GO
  VALUES ('Seba', 'GOTTENDAMERUNG', 'Olchawa', '665484000', '81113055555')
 
  INSERT INTO Oskar.Employees ( Empname, EmpMidName, EmpLastName, EmpPhone, EmpPESEL)
- VALUES ('Roki', 'A³abaj', 'Olchawa', '665484001', '17120400001')
+ VALUES ('Roki', 'AÂ³abaj', 'Olchawa', '665484001', '17120400001')
 
  INSERT INTO Oskar.Employees ( Empname, EmpMidName, EmpLastName, EmpPhone, EmpPESEL)
- VALUES ('Zosia', 'S³onina', 'Olchawa', '665484002', '13050100003')
+ VALUES ('Zosia', 'SÂ³onina', 'Olchawa', '665484002', '13050100003')
 
  INSERT INTO Oskar.Employees ( Empname, EmpMidName, EmpLastName, EmpPhone, EmpPESEL)
  VALUES ('Luna', 'TIGER', 'Olchawa', '665484003', '15040100003')
@@ -130,7 +130,7 @@ GO
  VALUES ('Aniela', 'Lil Masti', 'Bogusz', '878900223', '90040356032')
 
  INSERT INTO Oskar.Employees ( Empname, EmpMidName, EmpLastName, EmpPhone, EmpPESEL)
- VALUES ('Pawe³', 'Popek', 'Krul Albanii', '600976300', '78120203226')
+ VALUES ('PaweÂ³', 'Popek', 'Krul Albanii', '600976300', '78120203226')
 
 
  GO
@@ -337,12 +337,12 @@ SELECT TOP 10
 	WHEN dbo.MODEL300(0,9,RAND(CHECKSUM(NEWID()))) = 0 THEN 'Renault Clio'
     WHEN dbo.MODEL300(0,9,RAND(CHECKSUM(NEWID()))) = 1 THEN 'Renault Fluence Z.E.'
     WHEN dbo.MODEL300(0,9,RAND(CHECKSUM(NEWID()))) = 2 THEN 'Renault Logan'
-    WHEN dbo.MODEL300(0,9,RAND(CHECKSUM(NEWID()))) = 3 THEN 'Renault Mégane'
+    WHEN dbo.MODEL300(0,9,RAND(CHECKSUM(NEWID()))) = 3 THEN 'Renault MÃ©gane'
     WHEN dbo.MODEL300(0,9,RAND(CHECKSUM(NEWID()))) = 4 THEN 'Renault Talisman'
     WHEN dbo.MODEL300(0,9,RAND(CHECKSUM(NEWID()))) = 5 THEN 'Renault Zoe'
     WHEN dbo.MODEL300(0,9,RAND(CHECKSUM(NEWID()))) = 6 THEN 'Renault Alaskan'
     WHEN dbo.MODEL300(0,9,RAND(CHECKSUM(NEWID()))) = 7 THEN 'Renault Espace'
-    WHEN dbo.MODEL300(0,9,RAND(CHECKSUM(NEWID()))) = 8 THEN 'Renault Scénic'
+    WHEN dbo.MODEL300(0,9,RAND(CHECKSUM(NEWID()))) = 8 THEN 'Renault ScÃ©nic'
     WHEN dbo.MODEL300(0,9,RAND(CHECKSUM(NEWID()))) = 9 THEN 'Renault Arkana'
 ELSE 'Renault Koleos' END AS Model,
 dbo.MODEL300(1,15,RAND(CHECKSUM(NEWID()))) as WarehouseID
@@ -417,7 +417,7 @@ SELECT TOP 10
     WHEN dbo.MODEL300(0,9,RAND(CHECKSUM(NEWID()))) = 5 THEN 'Porshe Taycan'
     WHEN dbo.MODEL300(0,9,RAND(CHECKSUM(NEWID()))) = 6 THEN 'Porshe 918 Spyder'
     WHEN dbo.MODEL300(0,9,RAND(CHECKSUM(NEWID()))) = 7 THEN 'Porshe Carrera GT'
-    WHEN dbo.MODEL300(0,9,RAND(CHECKSUM(NEWID()))) = 8 THEN 'Porshe 911 GT1 Straßenversion'
+    WHEN dbo.MODEL300(0,9,RAND(CHECKSUM(NEWID()))) = 8 THEN 'Porshe 911 GT1 StraÃŸenversion'
     WHEN dbo.MODEL300(0,9,RAND(CHECKSUM(NEWID()))) = 9 THEN 'Porshe 968'
 ELSE 'Porshe Speedster (991.2)' END AS Model,
 dbo.MODEL300(1,15,RAND(CHECKSUM(NEWID()))) as WarehouseID
@@ -436,12 +436,12 @@ SELECT TOP 10
 	CASE 
 	WHEN dbo.MODEL300(0,9,RAND(CHECKSUM(NEWID()))) = 0 THEN 'Seat Mii Electric'
     WHEN dbo.MODEL300(0,9,RAND(CHECKSUM(NEWID()))) = 1 THEN 'Seat Ibiza'
-    WHEN dbo.MODEL300(0,9,RAND(CHECKSUM(NEWID()))) = 2 THEN 'Seat León'
+    WHEN dbo.MODEL300(0,9,RAND(CHECKSUM(NEWID()))) = 2 THEN 'Seat LeÃ³n'
     WHEN dbo.MODEL300(0,9,RAND(CHECKSUM(NEWID()))) = 3 THEN 'Seat Arona'
     WHEN dbo.MODEL300(0,9,RAND(CHECKSUM(NEWID()))) = 4 THEN 'Seat Panamera'
     WHEN dbo.MODEL300(0,9,RAND(CHECKSUM(NEWID()))) = 5 THEN 'Seat Ateca'
     WHEN dbo.MODEL300(0,9,RAND(CHECKSUM(NEWID()))) = 6 THEN 'Seat Tarraco'
-    WHEN dbo.MODEL300(0,9,RAND(CHECKSUM(NEWID()))) = 7 THEN 'Seat León'
+    WHEN dbo.MODEL300(0,9,RAND(CHECKSUM(NEWID()))) = 7 THEN 'Seat LeÃ³n'
     WHEN dbo.MODEL300(0,9,RAND(CHECKSUM(NEWID()))) = 8 THEN 'Seat Ateca'
     WHEN dbo.MODEL300(0,9,RAND(CHECKSUM(NEWID()))) = 9 THEN 'Seat Formentor'
 ELSE 'Seat Born' END AS Model,
@@ -641,12 +641,12 @@ CREATE TABLE CARPRICE
 	 WHEN CarModel LIKE 'Renault Clio' THEN CAST(RAND()*20000 AS INT)
      WHEN CarModel LIKE 'Renault Fluence Z.E.' THEN CAST(RAND()*25000 AS INT)
      WHEN CarModel LIKE 'Renault Logan' THEN CAST(RAND()*30000 AS INT)
-     WHEN CarModel LIKE 'Renault Mégane' THEN CAST(RAND()*35000 AS INT)
+     WHEN CarModel LIKE 'Renault MÃ©gane' THEN CAST(RAND()*35000 AS INT)
      WHEN CarModel LIKE 'Renault Talisman' THEN CAST(RAND()*40000 AS INT)
      WHEN CarModel LIKE 'Renault Zoe' THEN CAST(RAND()*45000 AS INT)
      WHEN CarModel LIKE 'Renault Alaskan' THEN CAST(RAND()*55000 AS INT)
      WHEN CarModel LIKE 'Renault Espace' THEN CAST(RAND()*60000 AS INT)
-     WHEN CarModel LIKE 'Renault Scénic' THEN CAST(RAND()*50000 AS INT)
+     WHEN CarModel LIKE 'Renault ScÃ©nic' THEN CAST(RAND()*50000 AS INT)
      WHEN CarModel LIKE 'Renault Arkana' THEN CAST(RAND()*75000 AS INT)
      WHEN CarModel LIKE 'Renault Koleos' THEN CAST(RAND()*80000 AS INT)
 	
@@ -682,18 +682,18 @@ CREATE TABLE CARPRICE
      WHEN CarModel LIKE 'Porshe Taycan' THEN CAST(RAND()*110000 AS INT)
      WHEN CarModel LIKE 'Porshe 918 Spyder' THEN CAST(RAND()*250000 AS INT)
      WHEN CarModel LIKE 'Porshe Carrera GT' THEN CAST(RAND()*300000 AS INT)
-     WHEN CarModel LIKE 'Porshe 911 GT1 Straßenversion' THEN CAST(RAND()*330000 AS INT)
+     WHEN CarModel LIKE 'Porshe 911 GT1 StraÃŸenversion' THEN CAST(RAND()*330000 AS INT)
      WHEN CarModel LIKE 'Porshe 968' THEN CAST(RAND()*340000 AS INT)
      WHEN CarModel LIKE 'Porshe Speedster (991.2)' THEN CAST(RAND()*400000 AS INT)
 
 	 WHEN CarModel LIKE 'Seat Mii Electric' THEN CAST(RAND()*20000 AS INT)
      WHEN CarModel LIKE 'Seat Ibiza' THEN CAST(RAND()*25000 AS INT)
-     WHEN CarModel LIKE 'Seat León' THEN CAST(RAND()*30000 AS INT)
+     WHEN CarModel LIKE 'Seat LeÃ³n' THEN CAST(RAND()*30000 AS INT)
      WHEN CarModel LIKE 'Seat Arona' THEN CAST(RAND()*45000 AS INT)
      WHEN CarModel LIKE 'Seat Panamera' THEN CAST(RAND()*60000 AS INT)
      WHEN CarModel LIKE 'Seat Ateca' THEN CAST(RAND()*55000 AS INT)
      WHEN CarModel LIKE 'Seat Tarraco' THEN CAST(RAND()*60000 AS INT)
-     WHEN CarModel LIKE 'Seat León' THEN CAST(RAND()*70000 AS INT)
+     WHEN CarModel LIKE 'Seat LeÃ³n' THEN CAST(RAND()*70000 AS INT)
      WHEN CarModel LIKE 'Seat Ateca' THEN CAST(RAND()*76000 AS INT)
      WHEN CarModel LIKE 'Seat Formentor' THEN CAST(RAND()*80000 AS INT)
      WHEN CarModel LIKE 'Seat Born' THEN CAST(RAND()*83000 AS INT)
@@ -778,12 +778,12 @@ GO
 	 WHEN CarModel LIKE 'Renault Clio' THEN CAST(RAND()*10000 AS INT)
      WHEN CarModel LIKE 'Renault Fluence Z.E.' THEN CAST(RAND()*12000 AS INT)
      WHEN CarModel LIKE 'Renault Logan' THEN CAST(RAND()*14000 AS INT)
-     WHEN CarModel LIKE 'Renault Mégane' THEN CAST(RAND()*15000 AS INT)
+     WHEN CarModel LIKE 'Renault MÃ©gane' THEN CAST(RAND()*15000 AS INT)
      WHEN CarModel LIKE 'Renault Talisman' THEN CAST(RAND()*20000 AS INT)
      WHEN CarModel LIKE 'Renault Zoe' THEN CAST(RAND()*22000 AS INT)
      WHEN CarModel LIKE 'Renault Alaskan' THEN CAST(RAND()*25000 AS INT)
      WHEN CarModel LIKE 'Renault Espace' THEN CAST(RAND()*30000 AS INT)
-     WHEN CarModel LIKE 'Renault Scénic' THEN CAST(RAND()*30000 AS INT)
+     WHEN CarModel LIKE 'Renault ScÃ©nic' THEN CAST(RAND()*30000 AS INT)
      WHEN CarModel LIKE 'Renault Arkana' THEN CAST(RAND()*35000 AS INT)
      WHEN CarModel LIKE 'Renault Koleos' THEN CAST(RAND()*40000 AS INT)
 	
@@ -819,18 +819,18 @@ GO
      WHEN CarModel LIKE 'Porshe Taycan' THEN CAST(RAND()*60000 AS INT)
      WHEN CarModel LIKE 'Porshe 918 Spyder' THEN CAST(RAND()*120000 AS INT)
      WHEN CarModel LIKE 'Porshe Carrera GT' THEN CAST(RAND()*150000 AS INT)
-     WHEN CarModel LIKE 'Porshe 911 GT1 Straßenversion' THEN CAST(RAND()*160000 AS INT)
+     WHEN CarModel LIKE 'Porshe 911 GT1 StraÃŸenversion' THEN CAST(RAND()*160000 AS INT)
      WHEN CarModel LIKE 'Porshe 968' THEN CAST(RAND()*160000 AS INT)
      WHEN CarModel LIKE 'Porshe Speedster (991.2)' THEN CAST(RAND()*200000 AS INT)
 
 	 WHEN CarModel LIKE 'Seat Mii Electric' THEN CAST(RAND()*10000 AS INT)
      WHEN CarModel LIKE 'Seat Ibiza' THEN CAST(RAND()*15000 AS INT)
-     WHEN CarModel LIKE 'Seat León' THEN CAST(RAND()*15000 AS INT)
+     WHEN CarModel LIKE 'Seat LeÃ³n' THEN CAST(RAND()*15000 AS INT)
      WHEN CarModel LIKE 'Seat Arona' THEN CAST(RAND()*25000 AS INT)
      WHEN CarModel LIKE 'Seat Panamera' THEN CAST(RAND()*30000 AS INT)
      WHEN CarModel LIKE 'Seat Ateca' THEN CAST(RAND()*25000 AS INT)
      WHEN CarModel LIKE 'Seat Tarraco' THEN CAST(RAND()*30000 AS INT)
-     WHEN CarModel LIKE 'Seat León' THEN CAST(RAND()*35000 AS INT)
+     WHEN CarModel LIKE 'Seat LeÃ³n' THEN CAST(RAND()*35000 AS INT)
      WHEN CarModel LIKE 'Seat Ateca' THEN CAST(RAND()*36000 AS INT)
      WHEN CarModel LIKE 'Seat Formentor' THEN CAST(RAND()*40000 AS INT)
      WHEN CarModel LIKE 'Seat Born' THEN CAST(RAND()*30000 AS INT)
