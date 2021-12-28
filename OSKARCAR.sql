@@ -941,7 +941,7 @@ PRINT 'Car sold at' + @PRICE + 'price'
 GO
 
 DECLARE @i int = 0
-WHILE @i < 300 
+WHILE @i < 20 
 BEGIN
     SET @i = @i + 1
 DELETE D FROM
