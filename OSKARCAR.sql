@@ -969,13 +969,14 @@ SELECT COUNT(ID) FROM (SELECT ROW_NUMBER() OVER (ORDER BY (SELECT NULL)) as ID F
 
 -- Employee with highest Revenue in March by ID number (WarehouseID):
 
-SELECT TOP 1 WarehouseID, SUM(TotalPrice) As Emp_Revenue FROM SOLDCARS GROUP BY WarehouseID ORDER BY Emp_Revenue Desc
+SELECT TOP 1 WarehouseID, SUM(TotalPrice) As Emp_Revenue FROM SOLDCARS WHERE CAST([DATE] as Date) like '%03%' GROUP BY WarehouseID ORDER BY Emp_Revenue Desc
 
 --Employee with highest Revenuein March by Name:
 
 SELECT TOP 1 E.EmpName, SUM(TotalPrice) As Emp_Revenue FROM SOLDCARS AS O
 INNER JOIN Oskar.Warehouse AS E
 ON E.WarehouseID = O.WarehouseID
+WHERE CAST([DATE] as Date) like '%03%'
 GROUP BY E.EmpName ORDER BY Emp_Revenue desc
 
 GO
