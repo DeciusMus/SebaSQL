@@ -946,3 +946,25 @@ END
 GO
 
 SELECT * FROM SOLDCARS
+
+GO
+
+/* liquidate the * to query the data:
+
+-- Average revenue from a sold car in march
+
+SELECT AVG(TotalPrice) AS average_cost_of_sold_car_in_march FROM SOLDCARS WHERE CAST([DATE] as Date) like '%03%' 
+
+-- Total Revenue from march:
+
+SELECT SUM(TotalPrice) AS total_revenue_from_sold_cars FROM SOLDCARS WHERE CAST([DATE] as Date) like '%03%'
+
+-- Sum of car sold in march (rows):
+
+SELECT ROW_NUMBER() OVER (ORDER BY (SELECT NULL)) as ID FROM SOLDCARS WHERE CAST([DATE] as Date) like '%03%'
+
+-- Number of cars sold in march: 
+
+SELECT COUNT(ID) FROM (SELECT ROW_NUMBER() OVER (ORDER BY (SELECT NULL)) as ID FROM SOLDCARS WHERE CAST([DATE] as Date) like '%03%') AS ID
+
+
