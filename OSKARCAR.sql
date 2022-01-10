@@ -967,11 +967,15 @@ SELECT ROW_NUMBER() OVER (ORDER BY (SELECT NULL)) as ID FROM SOLDCARS WHERE CAST
 
 SELECT COUNT(ID) FROM (SELECT ROW_NUMBER() OVER (ORDER BY (SELECT NULL)) as ID FROM SOLDCARS WHERE CAST([DATE] as Date) like '%03%') AS ID
 
+-- Number of cars sold in febuary:
+
+SELECT COUNT(ID) FROM (SELECT ROW_NUMBER() OVER (ORDER BY (SELECT NULL)) as ID FROM SOLDCARS WHERE CAST([DATE] as Date) like '%-02%') AS ID
+
 -- Employee with highest Revenue in March by ID number (WarehouseID):
 
 SELECT TOP 1 WarehouseID, SUM(TotalPrice) As Emp_Revenue FROM SOLDCARS WHERE CAST([DATE] as Date) like '%03%' GROUP BY WarehouseID ORDER BY Emp_Revenue Desc
 
---Employee with highest Revenuein March by Name:
+--Employee with highest Revenue in March by Name:
 
 SELECT TOP 1 E.EmpName, SUM(TotalPrice) As Emp_Revenue FROM SOLDCARS AS O
 INNER JOIN Oskar.Warehouse AS E
@@ -979,4 +983,31 @@ ON E.WarehouseID = O.WarehouseID
 WHERE CAST([DATE] as Date) like '%03%'
 GROUP BY E.EmpName ORDER BY Emp_Revenue desc
 
+-- Select Top 10 most expensive sold cars to date:
+
+SELECT TOP(10) carmodel, totalPrice, dense_Rank() over (order by totalprice DESC) as [rank]
+FROM soldcars
+
+-- Same version but with Common Table Expression:
+
+;WITH CTE0001 AS
+(SELECT  carmodel, totalPrice, dense_Rank() over (order by totalprice DESC) as [rank]
+FROM soldcars)
+SELECT TOP(10) carmodel, TotalPrice, [rank]
+FROM CTE0001 
+Order by [rank] asc
+
+-- Common Table Expression Used to determine who sold the most exprensive cars (top 10 by name):
+
+WITH CTE0002 AS
+(SELECT  carmodel, totalPrice, dense_Rank() over (order by totalprice DESC) as [rank], WarehouseID
+FROM soldcars), CTE0003 AS 
+(SELECT * FROM OSKAR.Warehouse)
+SELECT TOP(10) CTE0002.carmodel, CTE0002.TotalPrice, CTE0002.[rank], CTE0003.EmpName
+FROM CTE0002 INNER JOIN CTE0003 ON 
+CTE0002.WarehouseID = CTE0003.WarehouseID
+Order by [rank] asc
+
 GO
+
+
