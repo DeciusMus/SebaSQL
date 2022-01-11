@@ -1008,6 +1008,21 @@ FROM CTE0002 INNER JOIN CTE0003 ON
 CTE0002.WarehouseID = CTE0003.WarehouseID
 Order by [rank] asc
 
+-- Two Views (V0001, V0002), who help to designate three groups of best selling Employees by window rank functions:
+
+CREATE VIEW V0001 AS
+SELECT E.EmpName, SUM(TotalPrice) As Emp_Revenue FROM SOLDCARS AS O
+INNER JOIN Oskar.Warehouse AS E
+ON E.WarehouseID = O.WarehouseID
+GROUP BY E.EmpName
+
+SELECT * FROM V0001
+
 GO
 
+CREATE VIEW V0002 AS
+Select *, ROW_NUMBER() OVER(ORDER BY Emp_revenue desc) AS RN, NTILE(3) OVER(ORDER BY Emp_revenue desc) As Hrh FROM V0001
 
+SELECT * FROM V0002
+
+GO
