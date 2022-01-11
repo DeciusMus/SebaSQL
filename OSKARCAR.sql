@@ -1026,3 +1026,50 @@ Select *, ROW_NUMBER() OVER(ORDER BY Emp_revenue desc) AS RN, NTILE(3) OVER(ORDE
 SELECT * FROM V0002
 
 GO
+
+-- Create View who will help to determine Nth best seller in fiscarl year 2022: 
+
+CREATE VIEW V0003
+AS
+SELECT TOP 15 E.EmpName, SUM(TotalPrice) As Emp_Revenue FROM SOLDCARS AS O
+INNER JOIN Oskar.Warehouse AS E
+ON E.WarehouseID = O.WarehouseID
+GROUP BY E.EmpName ORDER BY Emp_Revenue desc
+
+SELECT * FROM V0003
+
+-- Select the 2th best seller in OSCARCARS LTD. in 2022:
+
+SELECT EmpName, Emp_Revenue FROM V0003 V1
+WHERE 2 - 1 = (SELECT COUNT(Distinct Emp_Revenue) FROM V0003 V2
+               WHERE V2.Emp_Revenue > V1.Emp_Revenue)
+
+-- Select the 5th best seller in OSCARCARS LTD. in 2022:
+
+SELECT EmpName, Emp_revenue FROM V0003 V1
+WHERE 6-1 = (SELECT COUNT(Distinct Emp_revenue) FROM V0003 V2
+             WHERE V2.Emp_Revenue > V1.Emp_Revenue)
+
+
+-- Create Table Valued Function that helps to determine Top N Sellers:
+
+CREATE FUNCTION TVF0001
+(@X AS INT) RETURNS TABLE
+AS
+RETURN
+SELECT TOP(@X) E.EmpName, SUM(TotalPrice) As Emp_Revenue FROM SOLDCARS AS O
+INNER JOIN Oskar.Warehouse AS E
+ON E.WarehouseID = O.WarehouseID
+GROUP BY E.EmpName ORDER BY Emp_Revenue desc
+
+-- Top 6 sellers
+
+SELECT * FROM TVF0001(6) AS XYZ
+
+-- Top 3 sellers
+
+SELECT * FROM TVF0001(3) AS XYZ
+
+GO
+
+
