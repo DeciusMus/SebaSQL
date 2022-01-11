@@ -1049,6 +1049,18 @@ WHERE 2 - 1 = (SELECT COUNT(Distinct Emp_Revenue) FROM V0003 V2
 SELECT EmpName, Emp_revenue FROM V0003 V1
 WHERE 6-1 = (SELECT COUNT(Distinct Emp_revenue) FROM V0003 V2
              WHERE V2.Emp_Revenue > V1.Emp_Revenue)
+	     
+-- Select 2nd best seller using DISTINCT clausule:
+
+SELECT TOP 1 EmpName, Emp_Revenue FROM 
+( SELECT DISTINCT TOP 2 EmpName, Emp_Revenue FROM V0003 ORDER BY Emp_Revenue DESC )
+AS temp ORDER BY Emp_Revenue
+
+-- Select 4th best seller using DISTINCT clausule:
+
+SELECT TOP 1 EmpName, Emp_Revenue FROM 
+(SELEct DISTINCT TOP 4 EmpName, Emp_Revenue FROM V0003 ORDER BY Emp_Revenue DESC)
+AS temp ORDER BY Emp_Revenue
 
 
 -- Create Table Valued Function that helps to determine Top N Sellers:
